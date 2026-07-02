@@ -90,15 +90,15 @@
   }
   .btn-top:hover { background: var(--primary); color: #fff; }
 
-  /* TEXTO DE APRESENTAÇÃO */
+  /* 1º SEÇÃO: TEXTO DE APRESENTAÇÃO */
   .intro-text-section {
-    padding: 150px 20px 20px; /* Reduzido o padding inferior para o banner ficar mais próximo */
+    padding: 140px 20px 20px;
     text-align: center;
     background: var(--light);
   }
   .intro-text-section .eyebrow {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--primary);
@@ -136,10 +136,10 @@
   }
   .btn-hero:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(194, 155, 98, 0.25); }
 
-  /* BANNER PRINCIPAL (AGORA LOGO ABAIXO DA APRESENTAÇÃO) */
+  /* 2º SEÇÃO: BANNER PRINCIPAL */
   .banner-wrapper {
     width: 100%;
-    padding: 20px 0 40px;
+    padding: 10px 0 30px;
     background: var(--light);
   }
   .img-banner {
@@ -151,26 +151,39 @@
     object-fit: contain;
   }
 
-  /* DIFERENCIAIS */
-  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+  /* 3º SEÇÃO: DIFERENCIAIS (REMODELADOS PARA FICAREM MENORES E MAIS LIMPOS) */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
   .feature-card {
-    background: #fff; padding: 40px 30px; border-radius: var(--radius);
-    border: 1px solid var(--gray-border); transition: all 0.3s ease; text-align: center;
+    background: #fff; 
+    padding: 28px 24px; /* Reduzido o tamanho consideravelmente */
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-border); 
+    transition: all 0.3s ease; 
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.01);
   }
-  .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-color: var(--primary); }
-  .feature-icon { font-size: 40px; margin-bottom: 20px; color: var(--primary); display: inline-block; }
-  .feature-card h3 { font-family: var(--font-heading); font-size: 22px; color: var(--dark); margin-bottom: 12px; }
-  .feature-card p { font-size: 15px; color: var(--text-muted); }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); border-color: var(--primary); }
+  .feature-icon { font-size: 30px; margin-bottom: 12px; color: var(--primary); display: inline-block; }
+  .feature-card h3 { 
+    font-family: var(--font-body); 
+    font-size: 15px; /* Menor e mais corporativo */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dark); 
+    margin-bottom: 10px; 
+  }
+  .feature-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
 
   /* SEÇÕES GERAIS */
-  section { padding: 90px 0; }
+  section { padding: 80px 0; }
   .bg-gray { background-color: var(--bg-gray); }
   
-  .section-title { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-  .section-title h2 { font-family: var(--font-heading); font-size: 38px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
-  .section-title p { color: var(--text-muted); font-size: 17px; font-weight: 400; }
+  .section-title { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+  .section-title h2 { font-family: var(--font-heading); font-size: 36px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+  .section-title p { color: var(--text-muted); font-size: 16px; font-weight: 400; }
 
-  /* GALERIA PINTEREST (MASONRY) */
+  /* 4º SEÇÃO: OBRAS ENTREGUES */
   .gallery-masonry {
     column-count: 3;
     column-gap: 20px;
@@ -193,7 +206,7 @@
   @media (max-width: 900px) { .gallery-masonry { column-count: 2; } }
   @media (max-width: 500px) { .gallery-masonry { column-count: 1; } }
 
-  /* FORMULÁRIO INTELIGENTE */
+  /* 5º SEÇÃO: FORMULÁRIO INTELIGENTE */
   .form-wrapper { max-width: 620px; margin: 0 auto; }
   .card-form {
     background: #ffffff; border: 1px solid var(--gray-border);
@@ -220,12 +233,26 @@
   input:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(194, 155, 98, 0.15); }
   textarea { resize: vertical; min-height: 100px; }
 
+  /* GRADE DE BOTÕES DO FORMULÁRIO (CORRIGIDA E TOTALMENTE ALINHADA) */
   .grade-servico { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .opcao-servico { position: relative; }
   .opcao-servico input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2; }
+  
+  /* .rotulo agora força altura uniforme e alinhamento perfeito */
   .opcao-servico .rotulo {
-    display: flex; align-items: center; gap: 10px; padding: 14px; border: 1px solid #ccc;
-    border-radius: 4px; font-size: 14px; font-weight: 600; background: #fafafa; transition: all 0.2s; user-select: none;
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 14px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    font-size: 14px; 
+    font-weight: 600; 
+    background: #fafafa; 
+    transition: all 0.2s; 
+    user-select: none;
+    height: 100%; /* Força todas as opções a esticarem juntas na mesma linha */
+    min-height: 52px;
   }
   .opcao-servico input:checked + .rotulo { border-color: var(--primary); background: #fff; color: var(--primary); box-shadow: 0 2px 10px rgba(194, 155, 98, 0.1); }
   .grupo-fotos { display: flex; gap: 12px; }
@@ -251,7 +278,7 @@
     color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 24px;
   }
 
-  /* SOBRE A EMPRESA */
+  /* 6º SEÇÃO: SOBRE A EMPRESA */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
   .about-text h2 { font-family: var(--font-heading); font-size: 36px; color: var(--dark); margin-bottom: 24px; }
   .about-text p { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; line-height: 1.8; }
@@ -264,7 +291,7 @@
     .about-image-wrapper { order: -1; }
   }
 
-  /* LOCALIZAÇÃO E CONTATOS */
+  /* 7º SEÇÃO: LOCALIZAÇÃO E CONTATOS */
   .maps-box {
     display: grid; grid-template-columns: 1fr; gap: 40px; background: #fff;
     padding: 40px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.04); align-items: center;
@@ -286,7 +313,7 @@
   .map-placeholder { width: 100%; height: 320px; background: var(--bg-gray); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--gray-border); }
   .map-placeholder iframe { width: 100%; height: 100%; border: 0; }
 
-  /* CARROSSEL DE AVALIAÇÕES */
+  /* 8º SEÇÃO: CARROSSEL DE AVALIAÇÕES */
   .carousel-container { width: 100%; overflow: hidden; padding: 20px 0; position: relative; }
   .carousel-track { display: flex; gap: 24px; width: max-content; animation: scroll 35s linear infinite; }
   .carousel-container:hover .carousel-track { animation-play-state: paused; }
@@ -298,7 +325,7 @@
   .review-img-card img { width: 100%; height: auto; display: block; border-radius: calc(var(--radius) - 4px); }
   @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-280px * 8 - 24px * 8)); } }
 
-  /* FOOTER */
+  /* 9º SEÇÃO: FOOTER */
   footer { background: var(--bg-gray); color: var(--text-muted); padding: 50px 24px; text-align: center; font-size: 14px; border-top: 1px solid var(--gray-border); }
   footer p { margin-bottom: 12px; color: var(--dark); font-weight: 500; }
   footer a { color: var(--primary); text-decoration: none; font-weight: 600; transition: color 0.2s; margin: 0 10px;}
@@ -324,26 +351,30 @@
     .logo { font-size: 20px; }
     .btn-top { display: none; }
     .btn-insta { width: 36px; height: 36px; font-size: 16px; }
-    .intro-text-section { padding: 110px 16px 15px; } /* Ajuste de espaçamento para o mobile */
+    .intro-text-section { padding: 110px 16px 15px; }
     .intro-text-section h1 { font-size: 30px; margin-bottom: 15px; }
     .intro-text-section p { font-size: 15px; margin-bottom: 25px; }
-    .banner-wrapper { padding: 10px 0 30px; }
+    .banner-wrapper { padding: 10px 0 20px; }
     .container-banner { padding: 0; }
-    .img-banner { border-radius: 0; } /* Imagem estica na tela no mobile */
+    .img-banner { border-radius: 0; }
+    
+    .features-grid { gap: 16px; }
+    .feature-card { padding: 24px 20px; }
+    
     .trilha { padding: 24px 20px 0; }
     .etapa { padding: 24px 20px; }
     .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 28px; }
     .review-img-card { width: 240px; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-240px * 8 - 24px * 8)); } }
-  }
-  @media (max-width: 400px) {
-    .grade-servico { grid-template-columns: 1fr; }
+    
+    /* Na versão mobile, a grade do formulário vira uma lista vertical */
+    .grade-servico { grid-template-columns: 1fr; gap: 8px; }
+    .opcao-servico .rotulo { min-height: 48px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="container nav-container">
     <div class="logo">Differencial <span>Pedras</span></div>
@@ -354,7 +385,6 @@
   </div>
 </header>
 
-<!-- 1º SEÇÃO: TEXTO DE APRESENTAÇÃO -->
 <section class="intro-text-section">
   <div class="container">
     <div class="eyebrow">Marmoraria de Alto Padrão</div>
@@ -364,14 +394,12 @@
   </div>
 </section>
 
-<!-- 2º SEÇÃO: BANNER PRINCIPAL (AGORA ACIMA DOS DIFERENCIAIS) -->
 <div class="banner-wrapper">
   <div class="container container-banner">
     <img src="https://i.imgur.com/6V2cnzx.jpeg" alt="Banner Differencial Pedras" class="img-banner">
   </div>
 </div>
 
-<!-- 3º SEÇÃO: DIFERENCIAIS -->
 <section style="padding-top: 20px; padding-bottom: 60px;">
   <div class="container">
     <div class="features-grid">
@@ -394,7 +422,6 @@
   </div>
 </section>
 
-<!-- 4º SEÇÃO: OBRAS ENTREGUES -->
 <section class="bg-gray">
   <div class="container">
     <div class="section-title">
@@ -412,7 +439,6 @@
   </div>
 </section>
 
-<!-- 5º SEÇÃO: FORMULÁRIO INTELIGENTE -->
 <section class="section-form" id="solicitar-orcamento">
   <div class="container">
     <div class="section-title">
@@ -423,7 +449,6 @@
     <div class="form-wrapper">
       <div class="card-form">
         
-        <!-- TRILHA DE PROGRESSO -->
         <div class="trilha">
           <div class="barra-total">
             <div class="progresso-atual" id="barraProgresso"></div>
@@ -431,7 +456,6 @@
           <span class="legenda" id="legendaEtapa">Passo 1 de 2</span>
         </div>
 
-        <!-- ETAPA 1 -->
         <form id="etapa1" class="etapa">
           <div class="etapa-titulo">Seus Dados</div>
           <div class="etapa-ajuda">Levará menos de 20 segundos. Atendimento exclusivo.</div>
@@ -474,7 +498,6 @@
           <button type="submit" class="btn-principal">Avançar para Detalhes →</button>
         </form>
 
-        <!-- ETAPA 2 -->
         <form id="etapa2" class="etapa oculta">
           <button type="button" class="btn-voltar" id="btnVoltar">← Voltar e ajustar</button>
           <div class="etapa-titulo">Detalhes da Pedra</div>
@@ -517,7 +540,6 @@
           <button type="submit" class="btn-principal" id="btnFinal">💬 Enviar via WhatsApp</button>
         </form>
 
-        <!-- TELA DE SUCESSO -->
         <div class="sucesso" id="telaSucesso">
           <div class="icone-check">✓</div>
           <h2>Solicitação Pronta!</h2>
@@ -530,7 +552,6 @@
   </div>
 </section>
 
-<!-- 6º SEÇÃO: SOBRE A EMPRESA -->
 <section class="bg-gray">
   <div class="container about-grid">
     <div class="about-text">
@@ -545,7 +566,6 @@
   </div>
 </section>
 
-<!-- 7º SEÇÃO: LOCALIZAÇÃO E CONTATOS -->
 <section>
   <div class="container">
     <div class="section-title">
@@ -556,7 +576,7 @@
       <div class="maps-info">
         <h3>Differencial Pedras</h3>
         <div class="maps-details">
-          <div class="maps-item"><span>📞</span> <strong>Contato:</strong>&nbsp;<span style="white-space: nowrap;">(99) 99131-0446</span></div>
+          <div class="maps-item"><span>📞</span> <strong>Contato:</strong> <span style="white-space: nowrap;">(99) 99131-0446</span></div>
           <div class="maps-item">
             <span>⏱️</span> 
             <div>
@@ -575,7 +595,6 @@
   </div>
 </section>
 
-<!-- 8º SEÇÃO: CARROSSEL DE AVALIAÇÕES -->
 <section class="bg-gray" style="padding: 80px 0;">
   <div class="container">
     <div class="section-title" style="margin-bottom: 40px;">
@@ -585,7 +604,6 @@
     
     <div class="carousel-container">
       <div class="carousel-track">
-        <!-- Prints -->
         <div class="review-img-card"><img src="https://i.imgur.com/6Fxn2ai.jpeg" alt="Avaliação"></div>
         <div class="review-img-card"><img src="https://i.imgur.com/p2upw73.jpeg" alt="Avaliação"></div>
         <div class="review-img-card"><img src="https://i.imgur.com/EACIIar.jpeg" alt="Avaliação"></div>
@@ -594,7 +612,6 @@
         <div class="review-img-card"><img src="https://i.imgur.com/xeyBkhA.jpeg" alt="Avaliação"></div>
         <div class="review-img-card"><img src="https://i.imgur.com/p10wwUB.jpeg" alt="Avaliação"></div>
         <div class="review-img-card"><img src="https://i.imgur.com/IUVv6Gt.jpeg" alt="Avaliação"></div>
-        <!-- Duplicados para a rolagem infinita -->
         <div class="review-img-card"><img src="https://i.imgur.com/6Fxn2ai.jpeg" alt="Avaliação"></div>
         <div class="review-img-card"><img src="https://i.imgur.com/p2upw73.jpeg" alt="Avaliação"></div>
         <div class="review-img-card"><img src="https://i.imgur.com/EACIIar.jpeg" alt="Avaliação"></div>
@@ -608,7 +625,6 @@
   </div>
 </section>
 
-<!-- 9º SEÇÃO: FOOTER -->
 <footer>
   <div class="container">
     <p>© 2026 Marmoraria Differencial Pedras. Alto Padrão em Rochas.</p>
@@ -619,7 +635,6 @@
   </div>
 </footer>
 
-<!-- WHATSAPP FLUTUANTE -->
 <a href="https://wa.me/5599991310446" class="whatsapp-float" target="_blank" title="Chamar no WhatsApp">💬</a>
 
 <script>
@@ -668,7 +683,7 @@
     barraProgresso.style.width = '100%';
     legendaEtapa.textContent = 'Passo 2 de 2';
     
-    window.scrollTo({top: document.getElementById('solicitar-orcamento').offsetTop - 100, behavior:'smooth'});
+    window.scrollTo({top: document.getElementById('solicitar-orcamento').offsetTop - 80, behavior:'smooth'});
   });
 
   btnVoltar.addEventListener('click', function(){
