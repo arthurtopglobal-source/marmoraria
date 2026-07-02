@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>Marmoraria Differencial Pedras | A Melhor de Imperatriz</title>
+<style>
+  :root {
+    --primary: #c29b62; /* Dourado Champanhe / Luxo */
+    --primary-hover: #a8834f;
+    --dark: #1f1f1f; /* Cinza Chumbo Escuro para textos */
+    --light: #ffffff; /* Fundo Branco Limpo */
+    --bg-gray: #f8f9fa; /* Cinza super claro para separar seções */
+    --gray-border: #e0e0e0;
+    --text: #333333;
+    --text-muted: #6c757d;
+    --verde-whatsapp: #25d366;
+    --radius: 8px;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', -apple-system, sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HEADER CLEAN E FIXO */
+  header {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gray-border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--primary); font-style: italic; }
+  
+  .nav-actions { display: flex; align-items: center; gap: 15px; }
+  .btn-insta {
+    display: flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 50%; color: #fff; text-decoration: none; font-size: 18px; transition: transform 0.3s;
+  }
+  .btn-insta:hover { transform: scale(1.1); }
+
+  .btn-top {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 10px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  .btn-top:hover { background: var(--primary); color: #fff; }
+
+  /* TEXTO DE APRESENTAÇÃO */
+  .intro-text-section {
+    padding: 150px 20px 20px; /* Reduzido o padding inferior para o banner ficar mais próximo */
+    text-align: center;
+    background: var(--light);
+  }
+  .intro-text-section .eyebrow {
+    font-family: var(--font-body);
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+  .intro-text-section h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .intro-text-section h1 span { color: var(--primary); font-style: italic; }
+  .intro-text-section p {
+    font-size: clamp(16px, 2vw, 18px);
+    color: var(--text-muted);
+    margin: 0 auto 30px;
+    max-width: 750px;
+  }
+  .btn-hero {
+    background: var(--primary);
+    color: #fff;
+    padding: 18px 45px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .btn-hero:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(194, 155, 98, 0.25); }
+
+  /* BANNER PRINCIPAL (AGORA LOGO ABAIXO DA APRESENTAÇÃO) */
+  .banner-wrapper {
+    width: 100%;
+    padding: 20px 0 40px;
+    background: var(--light);
+  }
+  .img-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    object-fit: contain;
+  }
+
+  /* DIFERENCIAIS */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+  .feature-card {
+    background: #fff; padding: 40px 30px; border-radius: var(--radius);
+    border: 1px solid var(--gray-border); transition: all 0.3s ease; text-align: center;
+  }
+  .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-color: var(--primary); }
+  .feature-icon { font-size: 40px; margin-bottom: 20px; color: var(--primary); display: inline-block; }
+  .feature-card h3 { font-family: var(--font-heading); font-size: 22px; color: var(--dark); margin-bottom: 12px; }
+  .feature-card p { font-size: 15px; color: var(--text-muted); }
+
+  /* SEÇÕES GERAIS */
+  section { padding: 90px 0; }
+  .bg-gray { background-color: var(--bg-gray); }
+  
+  .section-title { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+  .section-title h2 { font-family: var(--font-heading); font-size: 38px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+  .section-title p { color: var(--text-muted); font-size: 17px; font-weight: 400; }
+
+  /* GALERIA PINTEREST (MASONRY) */
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: 20px;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover { transform: scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 900px) { .gallery-masonry { column-count: 2; } }
+  @media (max-width: 500px) { .gallery-masonry { column-count: 1; } }
+
+  /* FORMULÁRIO INTELIGENTE */
+  .form-wrapper { max-width: 620px; margin: 0 auto; }
+  .card-form {
+    background: #ffffff; border: 1px solid var(--gray-border);
+    border-radius: var(--radius); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.06); overflow: hidden;
+  }
+  .trilha { padding: 35px 35px 0; }
+  .barra-total { width: 100%; height: 6px; background: var(--gray-border); border-radius: 3px; position: relative; margin-bottom: 8px; }
+  .progresso-atual { height: 100%; width: 50%; background: var(--primary); border-radius: 3px; transition: width 0.4s ease; }
+  .legenda { font-size: 11px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .etapa { padding: 35px; }
+  .etapa.oculta { display: none; }
+  .etapa-titulo { font-family: var(--font-heading); font-size: 26px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .etapa-ajuda { font-size: 14px; color: var(--text-muted); margin-bottom: 26px; }
+
+  .campo { margin-bottom: 24px; }
+  .campo label { display: block; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .campo .opcional-tag { font-weight: 400; color: #999; text-transform: none; }
+
+  input[type="text"], input[type="tel"], textarea {
+    width: 100%; padding: 15px 18px; border: 1px solid #ccc; border-radius: 4px;
+    font-size: 15px; font-family: var(--font-body); color: var(--dark); background: #fafafa; transition: all 0.2s ease;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(194, 155, 98, 0.15); }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .grade-servico { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .opcao-servico { position: relative; }
+  .opcao-servico input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2; }
+  .opcao-servico .rotulo {
+    display: flex; align-items: center; gap: 10px; padding: 14px; border: 1px solid #ccc;
+    border-radius: 4px; font-size: 14px; font-weight: 600; background: #fafafa; transition: all 0.2s; user-select: none;
+  }
+  .opcao-servico input:checked + .rotulo { border-color: var(--primary); background: #fff; color: var(--primary); box-shadow: 0 2px 10px rgba(194, 155, 98, 0.1); }
+  .grupo-fotos { display: flex; gap: 12px; }
+  .grupo-fotos .opcao-servico .rotulo { justify-content: center; }
+
+  button { cursor: pointer; border: none; font-family: var(--font-body); }
+  .btn-principal {
+    width: 100%; padding: 18px; background: var(--dark); color: #fff; font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s;
+  }
+  .btn-principal:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(194, 155, 98, 0.3); }
+
+  .btn-voltar { background: transparent; color: var(--text-muted); font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 8px 0; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+
+  .erro { font-size: 12px; color: #d93025; margin-top: 6px; display: none; font-weight: 600; }
+  .campo.invalido input { border-color: #d93025; }
+  .campo.invalido .erro { display: block; }
+
+  .sucesso { text-align: center; padding: 60px 40px; display: none; }
+  .sucesso.visivel { display: block; }
+  .sucesso .icone-check {
+    width: 72px; height: 72px; border-radius: 50%; background: #fcf9f2; border: 2px solid var(--primary);
+    color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 24px;
+  }
+
+  /* SOBRE A EMPRESA */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .about-text h2 { font-family: var(--font-heading); font-size: 36px; color: var(--dark); margin-bottom: 24px; }
+  .about-text p { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; line-height: 1.8; }
+  .about-text .destaque { color: var(--primary); font-weight: 600; font-size: 18px; display: block; margin-top: 20px; }
+  .about-image-wrapper { width: 100%; border-radius: var(--radius); overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
+  .about-image-wrapper img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
+    .about-image-wrapper { order: -1; }
+  }
+
+  /* LOCALIZAÇÃO E CONTATOS */
+  .maps-box {
+    display: grid; grid-template-columns: 1fr; gap: 40px; background: #fff;
+    padding: 40px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.04); align-items: center;
+    border: 1px solid var(--gray-border);
+  }
+  @media (min-width: 768px) { .maps-box { grid-template-columns: 1fr 1.2fr; } }
+  .maps-info h3 { font-family: var(--font-heading); font-size: 26px; color: var(--dark); margin-bottom: 16px; }
+  .maps-info p { color: var(--text-muted); margin-bottom: 24px; font-size: 15px; }
+  .maps-details { margin-bottom: 30px; }
+  .maps-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-weight: 500; color: var(--text); }
+  .maps-item span { color: var(--primary); font-size: 20px; line-height: 1; }
+  
+  .btn-mapa {
+    background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 14px 28px;
+    border-radius: 4px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 13px;
+    display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;
+  }
+  .btn-mapa:hover { background: var(--primary); color: #fff; }
+  .map-placeholder { width: 100%; height: 320px; background: var(--bg-gray); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--gray-border); }
+  .map-placeholder iframe { width: 100%; height: 100%; border: 0; }
+
+  /* CARROSSEL DE AVALIAÇÕES */
+  .carousel-container { width: 100%; overflow: hidden; padding: 20px 0; position: relative; }
+  .carousel-track { display: flex; gap: 24px; width: max-content; animation: scroll 35s linear infinite; }
+  .carousel-container:hover .carousel-track { animation-play-state: paused; }
+  .review-img-card {
+    background: #fff; padding: 10px; border-radius: var(--radius);
+    border: 1px solid var(--gray-border); box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    width: 280px; flex-shrink: 0;
+  }
+  .review-img-card img { width: 100%; height: auto; display: block; border-radius: calc(var(--radius) - 4px); }
+  @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-280px * 8 - 24px * 8)); } }
+
+  /* FOOTER */
+  footer { background: var(--bg-gray); color: var(--text-muted); padding: 50px 24px; text-align: center; font-size: 14px; border-top: 1px solid var(--gray-border); }
+  footer p { margin-bottom: 12px; color: var(--dark); font-weight: 500; }
+  footer a { color: var(--primary); text-decoration: none; font-weight: 600; transition: color 0.2s; margin: 0 10px;}
+  footer a:hover { color: var(--primary-hover); }
+
+  /* WHATSAPP FLUTUANTE */
+  .whatsapp-float {
+    position: fixed; bottom: 30px; right: 30px; background-color: var(--verde-whatsapp); color: #fff;
+    width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 999; text-decoration: none; transition: all 0.3s; animation: pulse 2s infinite;
+  }
+  .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: #20ba5a; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+  /* RESPONSIVIDADE MOBILE */
+  @media (max-width: 768px) {
+    .section-title h2 { font-size: 30px; }
+    .intro-text-section h1 { font-size: 38px; }
+    .maps-box { padding: 24px; gap: 24px; }
+    .map-placeholder { height: 260px; }
+  }
+  @media (max-width: 500px) {
+    .logo { font-size: 20px; }
+    .btn-top { display: none; }
+    .btn-insta { width: 36px; height: 36px; font-size: 16px; }
+    .intro-text-section { padding: 110px 16px 15px; } /* Ajuste de espaçamento para o mobile */
+    .intro-text-section h1 { font-size: 30px; margin-bottom: 15px; }
+    .intro-text-section p { font-size: 15px; margin-bottom: 25px; }
+    .banner-wrapper { padding: 10px 0 30px; }
+    .container-banner { padding: 0; }
+    .img-banner { border-radius: 0; } /* Imagem estica na tela no mobile */
+    .trilha { padding: 24px 20px 0; }
+    .etapa { padding: 24px 20px; }
+    .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 28px; }
+    .review-img-card { width: 240px; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-240px * 8 - 24px * 8)); } }
+  }
+  @media (max-width: 400px) {
+    .grade-servico { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav-container">
+    <div class="logo">Differencial <span>Pedras</span></div>
+    <div class="nav-actions">
+      <a href="https://www.instagram.com/differencialpedras/" target="_blank" class="btn-insta" title="Siga nosso Instagram">📸</a>
+      <a href="#solicitar-orcamento" class="btn-top">Orçamento Imediato</a>
+    </div>
+  </div>
+</header>
+
+<!-- 1º SEÇÃO: TEXTO DE APRESENTAÇÃO -->
+<section class="intro-text-section">
+  <div class="container">
+    <div class="eyebrow">Marmoraria de Alto Padrão</div>
+    <h1>A melhor marmoraria de <span>Imperatriz</span></h1>
+    <p>Trabalhamos com cortes precisos e rochas exclusivas para levar sofisticação e elegância máxima ao seu projeto arquitetônico. Transforme o seu ambiente.</p>
+    <a href="#solicitar-orcamento" class="btn-hero">Fazer Orçamento</a>
+  </div>
+</section>
+
+<!-- 2º SEÇÃO: BANNER PRINCIPAL (AGORA ACIMA DOS DIFERENCIAIS) -->
+<div class="banner-wrapper">
+  <div class="container container-banner">
+    <img src="https://i.imgur.com/6V2cnzx.jpeg" alt="Banner Differencial Pedras" class="img-banner">
+  </div>
+</div>
+
+<!-- 3º SEÇÃO: DIFERENCIAIS -->
+<section style="padding-top: 20px; padding-bottom: 60px;">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Acabamento Fino</h3>
+        <p>Cortes cirúrgicos em meia-esquadria e polimento espelhado de altíssimo padrão para bordas invisíveis.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💎</div>
+        <h3>Materiais Nobres</h3>
+        <p>Ampla variedade de mármores, granitos, quartzos e superfícies importadas totalmente exclusivas.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📐</div>
+        <h3>Execução Sob Medida</h3>
+        <p>Do projeto à instalação final, nossa equipe atua com precisão milimétrica e pontualidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4º SEÇÃO: OBRAS ENTREGUES -->
+<section class="bg-gray">
+  <div class="container">
+    <div class="section-title">
+      <h2>Obras Entregues</h2>
+      <p>Confira a excelência e o requinte dos nossos projetos finalizados.</p>
+    </div>
+    <div class="gallery-masonry">
+      <div class="gallery-item"><img src="https://i.imgur.com/MnYxUft.jpeg" alt="Projeto Differencial Pedras"></div>
+      <div class="gallery-item"><img src="https://i.imgur.com/9EPb0oL.jpeg" alt="Projeto Differencial Pedras"></div>
+      <div class="gallery-item"><img src="https://i.imgur.com/tGNgnIn.jpeg" alt="Projeto Differencial Pedras"></div>
+      <div class="gallery-item"><img src="https://i.imgur.com/rU8SDcd.jpeg" alt="Projeto Differencial Pedras"></div>
+      <div class="gallery-item"><img src="https://i.imgur.com/V234xui.jpeg" alt="Projeto Differencial Pedras"></div>
+      <div class="gallery-item"><img src="https://i.imgur.com/tyi01Nv.jpeg" alt="Projeto Differencial Pedras"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5º SEÇÃO: FORMULÁRIO INTELIGENTE -->
+<section class="section-form" id="solicitar-orcamento">
+  <div class="container">
+    <div class="section-title">
+      <h2>Orçamento de Projeto</h2>
+      <p>Preencha os passos abaixo e nossa equipe comercial gerará o seu escopo técnico estruturado no WhatsApp.</p>
+    </div>
+    
+    <div class="form-wrapper">
+      <div class="card-form">
+        
+        <!-- TRILHA DE PROGRESSO -->
+        <div class="trilha">
+          <div class="barra-total">
+            <div class="progresso-atual" id="barraProgresso"></div>
+          </div>
+          <span class="legenda" id="legendaEtapa">Passo 1 de 2</span>
+        </div>
+
+        <!-- ETAPA 1 -->
+        <form id="etapa1" class="etapa">
+          <div class="etapa-titulo">Seus Dados</div>
+          <div class="etapa-ajuda">Levará menos de 20 segundos. Atendimento exclusivo.</div>
+
+          <div class="campo" id="campoNome">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" autocomplete="name" placeholder="Ex: Ana Silva" required>
+            <div class="erro">Por favor, informe o seu nome.</div>
+          </div>
+
+          <div class="campo" id="campoWhats">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" autocomplete="tel" inputmode="numeric" placeholder="(99) 99999-9999" required>
+            <div class="erro">Informe um WhatsApp válido com DDD (99).</div>
+          </div>
+
+          <div class="campo" id="campoServico">
+            <label>Qual ambiente vamos transformar?</label>
+            <div class="grade-servico">
+              <div class="opcao-servico">
+                <input type="radio" name="servico" id="s1" value="Cozinha / Bancada">
+                <label class="rotulo" for="s1">🍳 Cozinha / Ilha</label>
+              </div>
+              <div class="opcao-servico">
+                <input type="radio" name="servico" id="s2" value="Banheiro / Lavatório">
+                <label class="rotulo" for="s2">🛁 Lavatório / Nicho</label>
+              </div>
+              <div class="opcao-servico">
+                <input type="radio" name="servico" id="s3" value="Escada / Piso">
+                <label class="rotulo" for="s3">🪜 Escada / Piso</label>
+              </div>
+              <div class="opcao-servico">
+                <input type="radio" name="servico" id="s4" value="Área Gourmet / Churrasqueira">
+                <label class="rotulo" for="s4">🔥 Área Gourmet</label>
+              </div>
+            </div>
+            <div class="erro">Selecione o ambiente principal desejado.</div>
+          </div>
+
+          <button type="submit" class="btn-principal">Avançar para Detalhes →</button>
+        </form>
+
+        <!-- ETAPA 2 -->
+        <form id="etapa2" class="etapa oculta">
+          <button type="button" class="btn-voltar" id="btnVoltar">← Voltar e ajustar</button>
+          <div class="etapa-titulo">Detalhes da Pedra</div>
+          <div class="etapa-ajuda">Ajude-nos a otimizar seu preço. <strong>Campos opcionais.</strong></div>
+
+          <div class="campo">
+            <label for="cidade">Bairro / Região (Imperatriz) <span class="opcional-tag">(opcional)</span></label>
+            <input type="text" id="cidade" placeholder="Ex: Centro, Juçara, Maranhão Novo">
+          </div>
+
+          <div class="campo">
+            <label for="material">Material ou Cor Desejada <span class="opcional-tag">(opcional)</span></label>
+            <input type="text" id="material" placeholder="Ex: Granito Preto São Gabriel, Quartzo Branco">
+          </div>
+
+          <div class="campo">
+            <label for="medidas">Medidas Aproximadas <span class="opcional-tag">(opcional)</span></label>
+            <input type="text" id="medidas" placeholder="Ex: Bancada de 2,40m x 0,60m">
+          </div>
+
+          <div class="campo">
+            <label>Você já possui o projeto técnico? <span class="opcional-tag">(opcional)</span></label>
+            <div class="grupo-fotos">
+              <div class="opcao-servico" style="flex:1">
+                <input type="radio" name="fotos" id="f1" value="Sim, possuo as medidas/projeto">
+                <label class="rotulo" for="f1">📐 Tenho Projeto</label>
+              </div>
+              <div class="opcao-servico" style="flex:1">
+                <input type="radio" name="fotos" id="f2" value="Não, preciso de medição no local">
+                <label class="rotulo" for="f2">📏 Preciso de Medição</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="obs">Observações Especiais <span class="opcional-tag">(opcional)</span></label>
+            <textarea id="obs" placeholder="Detalhes adicionais, tipo de cuba (embutida ou esculpida), acabamento de borda..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-principal" id="btnFinal">💬 Enviar via WhatsApp</button>
+        </form>
+
+        <!-- TELA DE SUCESSO -->
+        <div class="sucesso" id="telaSucesso">
+          <div class="icone-check">✓</div>
+          <h2>Solicitação Pronta!</h2>
+          <p>Compilamos suas especificações técnicas e estamos te conectando com nossa equipe comercial no WhatsApp...</p>
+          <button type="button" class="btn-principal" id="btnAbrirManual" style="margin-top:24px;">Conversar Agora</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6º SEÇÃO: SOBRE A EMPRESA -->
+<section class="bg-gray">
+  <div class="container about-grid">
+    <div class="about-text">
+      <h2>Transformando Rochas em Obras de Arte</h2>
+      <p>A <strong>Differencial Pedras</strong> nasceu com o propósito de elevar o padrão dos acabamentos em Imperatriz e região. Nosso foco é oferecer um serviço de altíssima qualidade, unindo as pedras mais belas do mundo com uma execução técnica impecável.</p>
+      <p>Nossa equipe é formada por especialistas que tratam cada projeto de forma exclusiva, desde a escolha minuciosa da chapa ideal, o corte em maquinário de precisão, até o polimento e a instalação final na sua obra.</p>
+      <span class="destaque">Trabalhamos lado a lado com arquitetos, construtores e clientes finais exigentes que não abrem mão do que há de melhor.</span>
+    </div>
+    <div class="about-image-wrapper">
+      <img src="https://i.imgur.com/MC99zhV.jpeg" alt="Estrutura e Qualidade Differencial Pedras">
+    </div>
+  </div>
+</section>
+
+<!-- 7º SEÇÃO: LOCALIZAÇÃO E CONTATOS -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Nosso Espaço</h2>
+      <p>Visite nossa marmoraria e confira de perto a qualidade das nossas pedras brutas e maquinário especializado.</p>
+    </div>
+    <div class="maps-box">
+      <div class="maps-info">
+        <h3>Differencial Pedras</h3>
+        <div class="maps-details">
+          <div class="maps-item"><span>📞</span> <strong>Contato:</strong>&nbsp;<span style="white-space: nowrap;">(99) 99131-0446</span></div>
+          <div class="maps-item">
+            <span>⏱️</span> 
+            <div>
+              <strong>Horário de Funcionamento:</strong><br>
+              Seg. a Sex: 08:00 às 12:00 e 14:00 às 18:00<br>
+              <em style="color: #888; font-size: 13px;">Fechado aos Sábados, Domingos e Feriados</em>
+            </div>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/eRmYvEqUywuKhBbv9" target="_blank" class="btn-mapa">🗺️ Abrir Rota no GPS</a>
+      </div>
+      <div class="map-placeholder">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15801.378772097485!2d-47.483123!3d-5.503411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92c55f10b0b00001%3A0x123456789abcdef!2sMarmoraria+Differencial+Pedras!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8º SEÇÃO: CARROSSEL DE AVALIAÇÕES -->
+<section class="bg-gray" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-title" style="margin-bottom: 40px;">
+      <h2>Avaliações dos Clientes</h2>
+      <p>A prova real do comprometimento e satisfação de quem escolheu a Differencial Pedras.</p>
+    </div>
+    
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <!-- Prints -->
+        <div class="review-img-card"><img src="https://i.imgur.com/6Fxn2ai.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/p2upw73.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/EACIIar.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/tiFNDEq.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/gU8pxAw.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/xeyBkhA.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/p10wwUB.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/IUVv6Gt.jpeg" alt="Avaliação"></div>
+        <!-- Duplicados para a rolagem infinita -->
+        <div class="review-img-card"><img src="https://i.imgur.com/6Fxn2ai.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/p2upw73.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/EACIIar.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/tiFNDEq.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/gU8pxAw.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/xeyBkhA.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/p10wwUB.jpeg" alt="Avaliação"></div>
+        <div class="review-img-card"><img src="https://i.imgur.com/IUVv6Gt.jpeg" alt="Avaliação"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9º SEÇÃO: FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 Marmoraria Differencial Pedras. Alto Padrão em Rochas.</p>
+    <div>
+      <a href="https://www.instagram.com/differencialpedras/" target="_blank">Instagram Oficial</a> | 
+      <a href="https://maps.app.goo.gl/eRmYvEqUywuKhBbv9" target="_blank">Google Maps</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5599991310446" class="whatsapp-float" target="_blank" title="Chamar no WhatsApp">💬</a>
+
+<script>
+  const WHATSAPP_OFFICIAL = "5599991310446"; 
+
+  const etapa1 = document.getElementById('etapa1');
+  const etapa2 = document.getElementById('etapa2');
+  const telaSucesso = document.getElementById('telaSucesso');
+  const barraProgresso = document.getElementById('barraProgresso');
+  const legendaEtapa = document.getElementById('legendaEtapa');
+  const btnVoltar = document.getElementById('btnVoltar');
+  const inputWhats = document.getElementById('whatsapp');
+
+  let dadosFormulario = {};
+
+  inputWhats.addEventListener('input', () => {
+    let v = inputWhats.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) { v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3'); } 
+    else if (v.length > 2) { v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2'); } 
+    else if (v.length > 0) { v = v.replace(/(\d{0,2})/, '($1'); }
+    inputWhats.value = v;
+  });
+
+  function aplicarFeedbackErro(campoId, erroAtivo){ document.getElementById(campoId).classList.toggle('invalido', erroAtivo); }
+
+  etapa1.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const whats = inputWhats.value.replace(/\D/g, '');
+    const servico = document.querySelector('input[name="servico"]:checked');
+    let validacao = true;
+
+    if (nome.length < 2){ aplicarFeedbackErro('campoNome', true); validacao = false; } else { aplicarFeedbackErro('campoNome', false); }
+    if (whats.length < 10){ aplicarFeedbackErro('campoWhats', true); validacao = false; } else { aplicarFeedbackErro('campoWhats', false); }
+    if (!servico){ aplicarFeedbackErro('campoServico', true); validacao = false; } else { aplicarFeedbackErro('campoServico', false); }
+
+    if (!validacao) return;
+
+    dadosFormulario.nome = nome;
+    dadosFormulario.whatsapp = whats;
+    dadosFormulario.servico = servico.value;
+
+    etapa1.classList.add('oculta');
+    etapa2.classList.remove('oculta');
+    
+    barraProgresso.style.width = '100%';
+    legendaEtapa.textContent = 'Passo 2 de 2';
+    
+    window.scrollTo({top: document.getElementById('solicitar-orcamento').offsetTop - 100, behavior:'smooth'});
+  });
+
+  btnVoltar.addEventListener('click', function(){
+    etapa2.classList.add('oculta');
+    etapa1.classList.remove('oculta');
+    barraProgresso.style.width = '50%';
+    legendaEtapa.textContent = 'Passo 1 de 2';
+  });
+
+  let linkDestinoWhats = '';
+
+  etapa2.addEventListener('submit', function(e){
+    e.preventDefault();
+    const localObra = document.getElementById('cidade').value.trim();
+    const corPedra = document.getElementById('material').value.trim();
+    const dimensionamento = document.getElementById('medidas').value.trim();
+    const notas = document.getElementById('obs').value.trim();
+    const projetoOpcao = document.querySelector('input[name="fotos"]:checked');
+
+    let textoFormatado = `Olá, Differencial Pedras! Preenchi o formulário do site para solicitar um orçamento:\n\n`;
+    textoFormatado += `• *Cliente:* ${dadosFormulario.nome}\n`;
+    textoFormatado += `• *Contato:* ${dadosFormulario.whatsapp}\n`;
+    textoFormatado += `• *Ambiente Desejado:* ${dadosFormulario.servico}\n`;
+    
+    if (localObra)       textoFormatado += `• *Localidade da Obra:* ${localObra}\n`;
+    if (corPedra)        textoFormatado += `• *Material/Cor:* ${corPedra}\n`;
+    if (dimensionamento) textoFormatado += `• *Medidas:* ${dimensionamento}\n`;
+    if (projetoOpcao)    textoFormatado += `• *Projeto:* ${projetoOpcao.value}\n`;
+    if (notas)           textoFormatado += `• *Detalhes:* ${notas}\n`;
+
+    linkDestinoWhats = `https://wa.me/${WHATSAPP_OFFICIAL}?text=${encodeURIComponent(textoFormatado)}`;
+    etapa2.classList.add('oculta');
+    telaSucesso.classList.add('visivel');
+
+    setTimeout(() => { window.location.href = linkDestinoWhats; }, 1200);
+  });
+
+  document.getElementById('btnAbrirManual').addEventListener('click', function(){
+    if (linkDestinoWhats) window.location.href = linkDestinoWhats;
+  });
+</script>
+
+</body>
+</html>
